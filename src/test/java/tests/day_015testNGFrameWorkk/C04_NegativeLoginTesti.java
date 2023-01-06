@@ -19,6 +19,7 @@ public class C04_NegativeLoginTesti {
 
         Driver.getDriver().get("https://www.qualitydemy.com/");
         qualitydemtPage.ilkLoginLinki.click();
+        qualitydemtPage=new QualitydemtPage();
         qualitydemtPage.kullaniciEmailKutusu.sendKeys("svl@cbvn.com");
         qualitydemtPage.passwordKutusu.sendKeys("31488081");
         qualitydemtPage.loginButtonu.click();
@@ -30,9 +31,10 @@ public class C04_NegativeLoginTesti {
     @Test
     public void yanlisPasswordTesti(){  // user_1106147@login.com
         Driver.getDriver().get("https://www.qualitydemy.com/");
+        qualitydemtPage=new QualitydemtPage();
         qualitydemtPage.ilkLoginLinki.click();
         qualitydemtPage.kullaniciEmailKutusu.sendKeys(" user_1106147@login.com");
-        qualitydemtPage.passwordKutusu.sendKeys("cldkj54");
+        qualitydemtPage.passwordKutusu.sendKeys("12345");
         qualitydemtPage.loginButtonu.click();
         Assert.assertTrue(qualitydemtPage.kullaniciEmailKutusu.isDisplayed());
 
@@ -42,9 +44,10 @@ public class C04_NegativeLoginTesti {
     @Test
     public void yanlisSfreyanlisPassword(){
         Driver.getDriver().get("https://www.qualitydemy.com/");
+        qualitydemtPage=new QualitydemtPage();
         qualitydemtPage.ilkLoginLinki.click();
         qualitydemtPage.kullaniciEmailKutusu.sendKeys("svkh@djk.com");
-        qualitydemtPage.passwordKutusu.sendKeys("cldkj54");
+        qualitydemtPage.passwordKutusu.sendKeys("12345");
         qualitydemtPage.loginButtonu.click();
         Assert.assertTrue(qualitydemtPage.kullaniciEmailKutusu.isDisplayed());
 
