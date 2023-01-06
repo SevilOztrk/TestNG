@@ -1,4 +1,4 @@
-package tests.day_015testNGFrameWorkk;
+package tests.day_015SoftAssert;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -7,7 +7,6 @@ import org.testng.asserts.SoftAssert;
 import pages.ZerowebAppPage;
 import utilities.Driver;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;

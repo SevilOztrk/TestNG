@@ -1,4 +1,4 @@
-package tests.day_015testNGFrameWorkk;
+package tests.day_015SoftAssert;
 
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
