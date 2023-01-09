@@ -12,7 +12,7 @@ public class C03_NutellaTesti {
 
 
 
-    @Test
+    @Test(groups = "minireg1")
     public void test01(){
 
         // amazon anasayfaya gidin

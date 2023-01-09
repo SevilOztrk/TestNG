@@ -3,11 +3,7 @@ package utilities;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.openqa.selenium.support.ui.*;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -15,21 +11,9 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.function.Function;
-
 public class ReusableMEthods {
-
-
-      /* Driver class'indan driver'i getDriver() ile kullaniyoruz
-       Sonradan projeye katilan insanlarin Driver class'indan obje olusturarak
-       driver kullanmaya calismalarini engellemek icin
-
-       Driver class'ini SINGLETON PATERN ile duzenleyebiliriz
-
-       Bunun icin Driver class'inin parametresiz constructor'ini olusturup
-       access modifier'ini PRIVATE yapmamiz yeterli olur.
-     */
-
     public static String getScreenshot(String name) throws IOException {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -43,12 +27,6 @@ public class ReusableMEthods {
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
-
-
-
-
-
-
     //========Switching Window=====//
     public static void switchToWindow(String targetTitle) {
         String origin = Driver.getDriver().getWindowHandle();
@@ -60,9 +38,6 @@ public class ReusableMEthods {
         }
         Driver.getDriver().switchTo().window(origin);
     }
-
-
-
     //========Hover Over=====//
     public static void hover(WebElement element) {
         Actions actions = new Actions(Driver.getDriver());
@@ -78,10 +53,6 @@ public class ReusableMEthods {
         }
         return elemTexts;
     }
-
-
-
-
     //========Returns the Text of the element given an element locator==//
     public static List<String> getElementsText(By locator) {
         List<WebElement> elems = Driver.getDriver().findElements(locator);
@@ -102,12 +73,6 @@ public class ReusableMEthods {
             e.printStackTrace();
         }
     }
-
-    
-
-
-
-
     //===============Explicit Wait==============//
     public static WebElement waitForVisibility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
@@ -135,11 +100,6 @@ public class ReusableMEthods {
             }
         }
     }
-
-
-
-
-
     public static void waitForPageToLoad(long timeout) {
         ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {
@@ -154,10 +114,6 @@ public class ReusableMEthods {
             System.out.println(
                     "Timeout waiting for Page Load Request to complete after " + timeout + " seconds");
         }
-
-
-
-
     }
     //======Fluent Wait====//
     public static WebElement fluentWait(final WebElement webElement, int timeout) {
@@ -172,6 +128,5 @@ public class ReusableMEthods {
         });
         return element;
     }
-
 }
 
