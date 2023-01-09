@@ -15,39 +15,22 @@ public class ZerowebAppPage {
 
     }
 
-
     @FindBy(id="signin_button")
     public WebElement signInButonu;
-
-    @FindBy(id = "user_login")
+    @FindBy(id="user_login")
     public WebElement userNameKutusu;
-
-
-    @FindBy(id = "user_password")
-    public WebElement userPassword;
-
-
-    @FindBy(xpath = "//input[@value=‘Sign in’]")
-    public WebElement signInSubmitButonu;
-
-    @FindBy (xpath = "//strong[text()=‘Online Banking’]")
+    @FindBy(id="user_password")
+    public WebElement passwordKutusu;
+    @FindBy(xpath = "//input[@value='Sign in']")
+    public WebElement singInSubmitButonu;
+    @FindBy(xpath = "//Strong[text()='Online Banking']")
     public WebElement onlineBanking;
-
-
-    @FindBy (id = "pay_bills_link")
-    public WebElement payBillLink;
-
-
-    @FindBy (xpath = "//a[text()=‘Purchase Foreign Currency’]")
-    public WebElement purchaseFCButonu;
-
-
-    @FindBy (id = "pc_currency")
-    public WebElement currencydropDown;
-
-
-
-
+    @FindBy(id = "pay_bills_link")
+    public WebElement payBillLinki;
+    @FindBy(xpath = "//a[text()='Purchase Foreign Currency']")
+    public  WebElement purchaseFCButonu;
+    @FindBy(id = "pc_currency")
+    public WebElement currencyDropdown;
 
 
 }

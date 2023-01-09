@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.QualitydemtPage;
 import utilities.Driver;
+import utilities.ReusableMEthods;
 
 public class C04_NegativeLoginTesti {
 
@@ -16,7 +17,7 @@ public class C04_NegativeLoginTesti {
 
     @Test
     public void yanlisEmailTesti(){
-
+        ReusableMEthods.bekle(3);
         Driver.getDriver().get("https://www.qualitydemy.com/");
         qualitydemtPage.ilkLoginLinki.click();
         qualitydemtPage=new QualitydemtPage();

@@ -38,7 +38,7 @@ public class C02_SoftAssert {
 
 
 
-        Driver.getDriver().get("https://zero.webappsecurity.com/");
+        Driver.getDriver().get("http://zero.webappsecurity.com/");
 
 
         ZerowebAppPage zerowebAppPage=new ZerowebAppPage();
@@ -48,17 +48,17 @@ public class C02_SoftAssert {
         zerowebAppPage.userNameKutusu.sendKeys("username");
 
 
-        zerowebAppPage.userPassword.sendKeys("password");
+        zerowebAppPage.passwordKutusu.sendKeys("password");
 
 
-        zerowebAppPage.signInSubmitButonu.click();
+        zerowebAppPage.singInSubmitButonu.click();
 
 
 
         // 6. Online banking menusu icinde Pay Bills sayfasina gidin
         Driver.getDriver().navigate().back(); // geri
         zerowebAppPage.onlineBanking.click();
-        zerowebAppPage.payBillLink.click();
+        zerowebAppPage.payBillLinki.click();
 
 
         //  7. “Purchase Foreign Currency” tusuna basin
@@ -66,7 +66,7 @@ public class C02_SoftAssert {
         zerowebAppPage.purchaseFCButonu.click();
 
         //  8. “Currency” drop down menusunden Eurozone’u secin
-        Select select=new Select(zerowebAppPage.currencydropDown);
+        Select select=new Select(zerowebAppPage.currencyDropdown);
         select.selectByVisibleText("Eurozone (euro)");
 
 

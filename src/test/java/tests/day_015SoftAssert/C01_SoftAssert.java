@@ -7,64 +7,43 @@ import pages.AmazonPage;
 import utilities.Driver;
 import utilities.ReusableMEthods;
 
+import java.util.Arrays;
+
 public class C01_SoftAssert {
 
-
-    @Test
+@Test
     public void test01(){
-
-        // amazon anasayfaya gidin
-
+        //amazon anasayfaya gidin
         Driver.getDriver().get("https://www.amazon.com");
 
-        // amazon anasayfaya gittiginizi doğrulayin.
-        SoftAssert softAssert=new SoftAssert();
+        // amazon anasayfaya gittiğini doğrulayın
+        SoftAssert softAsset=new SoftAssert();
         String expectedUrlKelime="amazon";
         String actualUrl=Driver.getDriver().getCurrentUrl();
-        softAssert.assertTrue(actualUrl.contains(expectedUrlKelime),"Url amazon icermiyor");
+        softAsset.assertTrue(actualUrl.contains(expectedUrlKelime),"Url amazon içermiyor");
 
-        // nutella aratin
-        AmazonPage amazonpage=new AmazonPage();
-        amazonpage.amazonAramaKutusu.sendKeys("Nutella" + Keys.ENTER);
+        // Nutella aratın
+        AmazonPage amazonPage=new AmazonPage();
+        amazonPage.amazonAramaKutusu.sendKeys("Nutella"+ Keys.ENTER);
 
-        // arama sonuclarinin nutella icerdigini dogrulayin.
-        String aramaSonucYazisi=amazonpage.aramaSonucuElementi.getText();
-        softAssert.assertTrue(aramaSonucYazisi.contains("Nutella"),"arama sonuclari nutella icermiyor");
+        //arama sonuclarının nutella içerdiğini doğrulayın
+        String aramaSonucYazisi=amazonPage.aramaSonucuElementi.getText();
+        softAsset.assertTrue(aramaSonucYazisi.contains("Nutella"),"Arama sonucu Nutella içermiyor");
 
-        // Java aratin.
+        //Java aratın
+        amazonPage.amazonAramaKutusu.clear();
+        amazonPage.amazonAramaKutusu.sendKeys("Java"+Keys.ENTER);
 
-        amazonpage.amazonAramaKutusu.clear();
-        amazonpage.amazonAramaKutusu.sendKeys("Java"+ Keys.ENTER);
-
-        ReusableMEthods.bekle(3);
-
-        // Arama sonuclarinin 1000'den fazla oldugunu dogrulayin.
-
-        // 1-48 of over, 6,000 results for "Java"
-
-        aramaSonucYazisi=amazonpage.aramaSonucuElementi.getText();
-
-        String[] sonucArr=aramaSonucYazisi.split("");
-       // [1-48, of, over, 6,000, results, for, "Java"]
-
-        String javaSonucSayisiStr=sonucArr[3]; //6,000
-
-        javaSonucSayisiStr=javaSonucSayisiStr.replaceAll("\\W",""); //6000
-
+        //arama sonuclarının 1000'den fazla oldugunu dogrulayın
+        System.out.println(amazonPage.aramaSonucuElementi.getText());
+        aramaSonucYazisi=amazonPage.aramaSonucuElementi.getText();
+        String[] sonucArr=aramaSonucYazisi.split(" ");
+        System.out.println(Arrays.toString(sonucArr));
+        String javaSonucSayisiStr=sonucArr[3];
+        javaSonucSayisiStr=javaSonucSayisiStr.replaceAll("\\W","");//6000
         int sonucSayisiInt=Integer.parseInt(javaSonucSayisiStr);
-
-        softAssert.assertTrue(sonucSayisiInt>1000, "java icin arama sayisi 1000'den cok degil");
-
-
-
-
-
-
-
-
-
-
-        softAssert.assertAll(); // raporla demek
+        softAsset.assertTrue(sonucSayisiInt>1000,"Arama sonucu 1000'den çok değil");
+        softAsset.assertAll();
         Driver.closeDriver();
     }
 }
