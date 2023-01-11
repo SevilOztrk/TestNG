@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="grup calistirma">
+<suite name="grup calistirma" >
     <test name="istenen grubu calistirma">
         <!-- istenen bir grubu calistirmak için
         öncelikle o gruptaki test method'larının işaretlenmiş olması gerekir
