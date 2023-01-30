@@ -30,7 +30,7 @@ public class C01_SoftAssert {
         String aramaSonucYazisi=amazonPage.aramaSonucuElementi.getText();
         softAsset.assertTrue(aramaSonucYazisi.contains("Nutella"),"Arama sonucu Nutella içermiyor");
 
-        //Java aratın
+        //Java aratın denme
         amazonPage.amazonAramaKutusu.clear();
         amazonPage.amazonAramaKutusu.sendKeys("Java"+Keys.ENTER);
 
